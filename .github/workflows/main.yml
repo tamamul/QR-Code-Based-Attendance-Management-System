@@ -24,13 +24,13 @@ jobs:
       - name: Setup Flutter (versi lama)
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "2.10.5" # versi terakhir sebelum Flutter 3, kompatibel dengan SDK <3.0.0
+          flutter-version: "2.10.5" # Kompatibel dengan SDK <3.0.0
 
       - name: Flutter pub get
         run: flutter pub get
 
-      - name: Build APK (release)
-        run: flutter build apk --release
+      - name: Build APK (release) bypass deprecation
+        run: flutter build apk --release --ignore-deprecation
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
